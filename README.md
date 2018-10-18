@@ -25,18 +25,31 @@ npm i webpack webpack-dev-server webpack-merge css-loader style-loader file-load
 ```
 
 > "babel-core": // babel 核心程式
+>
 > "babel-loader" // webpack 使用的 babel 編譯器
+>
 > "babel-plugin-transform-runtime": // 預設 babel 會在每一隻編譯檔案注入 polyfill 的程式碼，為了避免重複而將這部分抽出去。詳細說明：
+>
 > http://babeljs.io/docs/plugins/transform-runtime/
+>
 > "babel-preset-env": // 取代原本的 ES2015 支援 ES2015 語法
+>
 > "css-loader": // webpack 使用於處理 css
+>
 > "file-loader": // webpack 使用於處理檔案
+>
 > "style-loader": // webpack 將 css 整合進元件中
+>
 > "url-loader": // 編譯匯入檔案類型的資源，把檔案轉成 base64
+>
 > "vue-hot-reload-api": // 支援 Hot Reload
+>
 > "vue-loader": // 使用 Vue Component Spec
+>
 > "webpack":
+>
 > "webpack-dev-server": // webpack 開發伺服器
+>
 > "webpack-merge": // 合併 webpack 設定參數
 
 ### 手動 create webpack.config.js
