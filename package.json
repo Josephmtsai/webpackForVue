@@ -1,0 +1,38 @@
+{
+  "name": "badmintoninfo",
+  "version": "1.0.0",
+  "description": "webpackForVue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Josephmtsai/webpackForVue.git"
+  },
+  "author": "joseph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Josephmtsai/webpackForVue/issues"
+  },
+  "homepage": "https://github.com/Josephmtsai/webpackForVue#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "vue-hot-reload-api": "^2.3.1",
+    "vue-loader": "^15.4.2",
+    "webpack": "^4.21.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "vue": "^2.5.17"
+  }
+}
