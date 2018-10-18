@@ -20,19 +20,27 @@ webpackForVue
 
 Babel 的官網上在 9 月宣布 ES2015 / ES2016/ ES2017 等等 ES20xx 時代的 presets 通通被廢棄（deprecated），取而代之的是 babel-preset-env，並且承諾它將成為"未來不會過時的（future-proof ）"解決方案。
 
+> 在2018 08 Babel更新了 七版 過去的版本使用的 
+> npm i babel-core 改成了 npm i @babel/core  相對應其他都是
+
+
 ```
-npm i webpack webpack-dev-server webpack-merge css-loader style-loader file-loader url-loader babel-loader babel-core babel-plugin-transform-runtime babel-preset-env vue-loader vue-hot-reload-api -D
+npm i webpack webpack-dev-server webpack-merge css-loader style-loader file-loader url-loader vue-loader vue-hot-reload-api -D
+
+npm i @babel/preset-env @babel/core babel-loader -D @babel/polyfill
+
 ```
 
-> "babel-core": // babel 核心程式
+
+
+> "@babel/core": // babel 核心程式
 >
 > "babel-loader" // webpack 使用的 babel 編譯器
 >
-> "babel-plugin-transform-runtime": // 預設 babel 會在每一隻編譯檔案注入 polyfill 的程式碼，為了避免重複而將這部分抽出去。詳細說明：
 >
 > http://babeljs.io/docs/plugins/transform-runtime/
 >
-> "babel-preset-env": // 取代原本的 ES2015 支援 ES2015 語法
+> "@babel/preset-env": // 取代原本的 ES2015 支援 ES2015 語法
 >
 > "css-loader": // webpack 使用於處理 css
 >
@@ -52,17 +60,22 @@ npm i webpack webpack-dev-server webpack-merge css-loader style-loader file-load
 >
 > "webpack-merge": // 合併 webpack 設定參數
 
-### 手動 create webpack.config.js
+### 手動 create webpack.config.js 以及 .babelrc 
 
-並且在 package.json 加上 "dev" 設定
+因為我們範例有使用es 6語法 所以預設一定要使用babel 
+>@babel/preset-env 這是七版的引用方法
+
+並且在 package.json 加上 "dev" 以及build 設定
 
 ```
 webpack-dev-server --devtool eval --progress --colors --content-base build
+"webpack --devtool eval --progress --colors --content-base dist",
 ```
 
 - --devtool eval: 將把 source 加到我的 code.
 - --progress 與 --colors 只是反應現在程序執行到哪邊。
 - --content-base build 將會把 build 裡的 index.html 作為你的啟始網頁
+
 
 # Reference
 
@@ -80,6 +93,5 @@ https://juejin.im/entry/5acca3ae5188257cc20d9ece
 
 https://medium.com/html-test/webpack-%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B-585f2bc952b9
 
-```
+https://www.ithome.com.tw/news/125533
 
-```
