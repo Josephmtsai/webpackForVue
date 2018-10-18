@@ -39,6 +39,18 @@ npm i webpack webpack-dev-server webpack-merge css-loader style-loader file-load
 > "webpack-dev-server": // webpack 開發伺服器
 > "webpack-merge": // 合併 webpack 設定參數
 
+### 手動 create webpack.config.js
+
+並且在 package.json 加上 "dev" 設定
+
+```
+webpack-dev-server --devtool eval --progress --colors --content-base build
+```
+
+- --devtool eval: 將把 source 加到我的 code.
+- --progress 與 --colors 只是反應現在程序執行到哪邊。
+- --content-base build 將會把 build 裡的 index.html 作為你的啟始網頁
+
 # Reference
 
 https://github.com/qq20004604/webpack-study
@@ -52,3 +64,9 @@ https://segmentfault.com/a/1190000005363030
 https://zhuanlan.zhihu.com/p/29506685
 
 https://juejin.im/entry/5acca3ae5188257cc20d9ece
+
+https://medium.com/html-test/webpack-%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B-585f2bc952b9
+
+```
+
+```

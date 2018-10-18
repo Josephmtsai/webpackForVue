@@ -4,6 +4,7 @@
   "description": "webpackForVue",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
