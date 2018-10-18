@@ -1,6 +1,6 @@
 webpackForVue
 
-# Command
+# 設定教學
 
 ### npm init
 
