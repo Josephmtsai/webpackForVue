@@ -126,6 +126,8 @@ https://www.ithome.com.tw/news/125533
 
 https://ithelp.ithome.com.tw/articles/10197052
 
+https://webpack.js.org/configuration/dev-server/#devserver-open
+
 # vs code 安裝套件
 
 https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
