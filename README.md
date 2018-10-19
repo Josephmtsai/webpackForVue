@@ -20,23 +20,18 @@ webpackForVue
 
 Babel 的官網上在 9 月宣布 ES2015 / ES2016/ ES2017 等等 ES20xx 時代的 presets 通通被廢棄（deprecated），取而代之的是 babel-preset-env，並且承諾它將成為"未來不會過時的（future-proof ）"解決方案。
 
-> 在2018 08 Babel更新了 七版 過去的版本使用的 
-> npm i babel-core 改成了 npm i @babel/core  相對應其他都是
-
+> 在 2018 08 Babel 更新了 七版 過去的版本使用的
+> npm i babel-core 改成了 npm i @babel/core 相對應其他都是
 
 ```
 npm i webpack webpack-dev-server webpack-merge css-loader style-loader file-loader url-loader vue-loader vue-hot-reload-api -D
 
 npm i @babel/preset-env @babel/core babel-loader -D @babel/polyfill
-
 ```
-
-
 
 > "@babel/core": // babel 核心程式
 >
 > "babel-loader" // webpack 使用的 babel 編譯器
->
 >
 > http://babeljs.io/docs/plugins/transform-runtime/
 >
@@ -60,12 +55,13 @@ npm i @babel/preset-env @babel/core babel-loader -D @babel/polyfill
 >
 > "webpack-merge": // 合併 webpack 設定參數
 
-### 手動 create webpack.config.js 以及 .babelrc 
+### 手動 create webpack.config.js 以及 .babelrc
 
-因為我們範例有使用es 6語法 所以預設一定要使用babel 
->@babel/preset-env 這是七版的引用方法
+因為我們範例有使用 es 6 語法 所以預設一定要使用 babel
 
-並且在 package.json 加上 "dev" 以及build 設定
+> @babel/preset-env 這是七版的引用方法
+
+並且在 package.json 加上 "dev" 以及 build 設定
 
 ```
 webpack-dev-server --devtool eval --progress --colors --content-base build
@@ -76,6 +72,39 @@ webpack-dev-server --devtool eval --progress --colors --content-base build
 - --progress 與 --colors 只是反應現在程序執行到哪邊。
 - --content-base build 將會把 build 裡的 index.html 作為你的啟始網頁
 
+### 安裝 eslint format
+
+為了我寫的 js code 風格能夠符合規範 + 我希望可以自動幫我修正格式 所以我使用
+
+eslint + airbnb 格式
+
+```
+npm install eslint --save-dev
+eslint --init
+```
+
+> 照著步驟安裝好了以後 在安裝 prettier-vscode
+> 然後對著 vs code ( ctrl+shift +p)
+
+> 把下面設定貼上去 讓他可以存檔的時候自動 format
+
+```
+{
+    "window.zoomLevel": 1,
+    "extensions.ignoreRecommendations": false,
+    "editor.fontSize": 22,
+    "eslint.autoFixOnSave": true,
+    "editor.formatOnSave": true,
+    "eslint.alwaysShowStatus": true,
+    "prettier.singleQuote": true
+}
+```
+
+> 如果要確定 eslint server 有沒有起來 請看輸出 選 eslint
+
+![Alt text](/images/eslint%20server.jpg)
+
+> 接著測試一下 存檔的功能看一下可不可以
 
 # Reference
 
@@ -95,3 +124,11 @@ https://medium.com/html-test/webpack-%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%
 
 https://www.ithome.com.tw/news/125533
 
+https://ithelp.ithome.com.tw/articles/10197052
+
+# vs code 安裝套件
+
+https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+
+GITLens
+ESLint
