@@ -71,6 +71,55 @@ webpack-dev-server --devtool eval --progress --colors --content-base build
 - --devtool eval: 將把 source 加到我的 code.
 - --progress 與 --colors 只是反應現在程序執行到哪邊。
 - --content-base build 將會把 build 裡的 index.html 作為你的啟始網頁
+- --open : 會把預設的瀏覽器打開 在 run 的時候
+
+### 設定 webpack dev server run 的時候 預設可以指定 html
+
+我們利用了 HtmlWebpackPlugin .index.html 的 template，它會產生一個檔案叫做 index.html 在我們的 dist 資料夾，而網頁的內容是 .index.html
+
+```
+npm install --save-dev html-webpack-plugin
+```
+
+然後將 webpack 改成這樣
+
+```
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve('dist'),
+    filename: 'bundle.js',
+    publicPath: '/dist/',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+    ],
+  },
+  devServer: {
+    port: 7777,
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: '.index.html',
+    }),
+  ],
+};
+```
 
 ### 安裝 eslint format
 
@@ -127,6 +176,8 @@ https://www.ithome.com.tw/news/125533
 https://ithelp.ithome.com.tw/articles/10197052
 
 https://webpack.js.org/configuration/dev-server/#devserver-open
+
+https://neighborhood999.github.io/webpack-tutorial-gitbook/Part1/AddMorePlugin.html
 
 # vs code 安裝套件
 

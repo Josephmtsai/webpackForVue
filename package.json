@@ -4,7 +4,7 @@
   "description": "webpackForVue",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server —mode developmen --open --devtool eval --progress --colors --content-base build",
+    "dev": "webpack-dev-server --open --devtool eval --progress --colors",
     "build": "webpack --devtool eval --progress --colors --content-base dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,6 +29,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "vue-hot-reload-api": "^2.3.1",
