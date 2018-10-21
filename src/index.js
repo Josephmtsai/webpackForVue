@@ -1,7 +1,8 @@
-function aa() {
-  return '12323';
-}
+import vue from 'vue';
 
-console.log(aa());
-
-console.log('asdas');
+new vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue',
+  },
+});
