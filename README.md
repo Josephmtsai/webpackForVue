@@ -64,8 +64,8 @@ npm i @babel/preset-env @babel/core babel-loader -D @babel/polyfill
 並且在 package.json 加上 "dev" 以及 build 設定
 
 ```
-webpack-dev-server --devtool eval --progress --colors --content-base build
-"webpack --devtool eval --progress --colors --content-base dist",
+dev: "webpack-dev-server --config webpack.config.js --open  --progress --colors"
+build: "webpack --devtool eval --progress --colors --content-base dist",
 ```
 
 - --devtool eval: 將把 source 加到我的 code.
@@ -78,7 +78,7 @@ webpack-dev-server --devtool eval --progress --colors --content-base build
 我們利用了 HtmlWebpackPlugin .index.html 的 template，它會產生一個檔案叫做 index.html 在我們的 dist 資料夾，而網頁的內容是 .index.html
 
 ```
-npm install --save-dev html-webpack-plugin
+npm i -D html-webpack-plugin
 ```
 
 然後將 webpack 改成這樣
@@ -86,19 +86,25 @@ npm install --save-dev html-webpack-plugin
 ```
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const buildPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
-  entry: './src/index.js',
+  devtool: 'source-map',
+  entry: [
+    'webpack/hot/dev-server',
+    'webpack/hot/only-dev-server',
+    './src/index.js',
+  ],
   output: {
-    path: path.resolve('dist'),
+    path: buildPath,
     filename: 'bundle.js',
     publicPath: '/dist/',
   },
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
@@ -109,17 +115,38 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: ['.js', '.vue'],
+    /**
+     * Vue v2.x 之後 NPM Package 預設只會匯出 runtime-only 版本，若要使用 standalone 功能則需下列設定
+     */
+    alias: {
+      vue: 'vue/dist/vue.js',
+    },
+  },
   devServer: {
     port: 7777,
+    contentBase: './',
+    hot: true,
+    inline: true,
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: '.index.html',
-    }),
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 };
 ```
+
+> 如果安裝 VUE 一定要設定 resolve 的 alia 才有辦法在 dev server 引用
+
+### 設定其他 loader for webpack
+
+1. 使用 uglifyjs-webpack-plugin ( 這在 webpack 4 使用 主要是用來 remove js 空格 等等的東西)
+
+2. css loader
+
+3. html compresser
+
+4. 設定成 hash 檔案
+
+### 設定 env 參數給 webpack bundle 使用
 
 ### 安裝 eslint format
 
@@ -178,6 +205,8 @@ https://ithelp.ithome.com.tw/articles/10197052
 https://webpack.js.org/configuration/dev-server/#devserver-open
 
 https://neighborhood999.github.io/webpack-tutorial-gitbook/Part1/AddMorePlugin.html
+
+https://my.oschina.net/hyzccc/blog/1797358
 
 # vs code 安裝套件
 
