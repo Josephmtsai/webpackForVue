@@ -1,11 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const buildPath = path.resolve(__dirname, 'dist');
+
 module.exports = {
   devtool: 'source-map',
-  entry: './src/index.js',
+  entry: [
+    'webpack/hot/dev-server',
+    'webpack/hot/only-dev-server',
+    './src/index.js',
+  ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: buildPath,
     filename: 'bundle.js',
     publicPath: '/dist/',
   },
@@ -27,6 +33,7 @@ module.exports = {
     port: 7777,
     contentBase: './',
     hot: true,
+    inline: true,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
 };

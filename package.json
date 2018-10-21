@@ -2,9 +2,8 @@
   "name": "badmintoninfo",
   "version": "1.0.0",
   "description": "webpackForVue",
-  "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --devtool eval --progress --colors",
+    "dev": "webpack-dev-server --config webpack.config.js --open  --progress --colors",
     "build": "webpack --devtool eval --progress --colors --content-base dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
