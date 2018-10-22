@@ -134,7 +134,42 @@ module.exports = {
 };
 ```
 
-> 如果安裝 VUE 一定要設定 resolve 的 alia 才有辦法在 dev server 引用
+> 如果安裝 VUE 一定要設定 resolve 的 alias 才有辦法在 dev server 引用
+
+### 設定 dev server 有辦法 loader .vue file
+
+除了要安裝 vue-loader 也要安裝
+
+```
+npm i -D vue-template-compiler
+```
+
+> webpack 4 的版本
+
+接著再把 webpack.config 裡面的 rules 改成這樣
+
+```
+ module: {
+    rules: [{
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.vue$/,
+        use: 'vue-loader',
+      }
+    ],
+  },
+```
+
+以及 plugins 改成這樣讓他在跑的時候可以使用 vue loader plugin
+
+```
+new VueLoaderPlugin()
+```
 
 ### 設定其他 loader for webpack
 
@@ -207,6 +242,8 @@ https://webpack.js.org/configuration/dev-server/#devserver-open
 https://neighborhood999.github.io/webpack-tutorial-gitbook/Part1/AddMorePlugin.html
 
 https://my.oschina.net/hyzccc/blog/1797358
+
+https://blog.csdn.net/weixin_40814356/article/details/80625747
 
 # vs code 安裝套件
 

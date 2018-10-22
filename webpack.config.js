@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 const buildPath = path.resolve(__dirname, 'dist');
-
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 module.exports = {
   devtool: 'source-map',
   entry: [
@@ -16,17 +16,17 @@ module.exports = {
     publicPath: '/dist/',
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
         },
       },
+      {
+        test: /\.vue$/,
+        use: 'vue-loader',
+      }
     ],
   },
   resolve: {
@@ -44,5 +44,5 @@ module.exports = {
     hot: true,
     inline: true,
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [new webpack.HotModuleReplacementPlugin(), new VueLoaderPlugin()],
 };

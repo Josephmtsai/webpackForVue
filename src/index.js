@@ -1,8 +1,10 @@
 import vue from 'vue';
+import menuheader from './components/menuheader.vue';
 
 new vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue',
-  },
+  el: '#badmintoninfo',
+  template: '<menuheader/>',
+  components: {
+    menuheader,
+  }
 });
