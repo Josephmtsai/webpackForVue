@@ -5,6 +5,6 @@ new vue({
   el: '#badmintoninfo',
   template: '<menuheader/>',
   components: {
-    menuheader,
+    menuheader
   }
 });

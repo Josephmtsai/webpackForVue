@@ -8,26 +8,27 @@ module.exports = {
   entry: [
     'webpack/hot/dev-server',
     'webpack/hot/only-dev-server',
-    './src/index.js',
+    './src/index.js'
   ],
   output: {
     path: buildPath,
     filename: 'bundle.js',
-    publicPath: '/dist/',
+    publicPath: '/dist/'
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader',
-        },
+          loader: 'babel-loader'
+        }
       },
       {
         test: /\.vue$/,
-        use: 'vue-loader',
+        use: 'vue-loader'
       }
-    ],
+    ]
   },
   resolve: {
     extensions: ['.js', '.vue'],
@@ -35,14 +36,14 @@ module.exports = {
      * Vue v2.x 之後 NPM Package 預設只會匯出 runtime-only 版本，若要使用 standalone 功能則需下列設定
      */
     alias: {
-      vue: 'vue/dist/vue.js',
-    },
+      vue: 'vue/dist/vue.js'
+    }
   },
   devServer: {
     port: 7777,
     contentBase: './',
     hot: true,
-    inline: true,
+    inline: true
   },
-  plugins: [new webpack.HotModuleReplacementPlugin(), new VueLoaderPlugin()],
+  plugins: [new webpack.HotModuleReplacementPlugin(), new VueLoaderPlugin()]
 };

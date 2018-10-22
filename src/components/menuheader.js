@@ -1,10 +1,10 @@
 export default {
-    data() {
-        return {
-            headerValue: ['first', 'second', 'third'],
-            greeting: 'hello',
-        }
-    }
-}
+  data() {
+    return {
+      headerValue: ['first', 'second', 'third'],
+      greeting: 'hello'
+    };
+  }
+};
 
-console.log("asdsd");
+console.log('asdsd');
