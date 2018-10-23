@@ -16,9 +16,8 @@ module.exports = {
         new VueLoaderPlugin()
     ],
     output: {
-        filename: '[name].bundle.js',
-        path: buildPath,
-        publicPath: ''
+        filename: 'js/[name].bundle.js',
+        path: buildPath
     },
     module: {
         rules: [{
