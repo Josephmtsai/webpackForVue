@@ -173,6 +173,13 @@ new VueLoaderPlugin()
 
 ### 設定其他 loader for webpack
 
+```
+npm i -D webpack-merge
+npm i -D clean-webpack-plugin
+```
+
+> 我想把 webpack 設定分開
+
 1. 使用 uglifyjs-webpack-plugin ( 這在 webpack 4 使用 主要是用來 remove js 空格 等等的東西)
 
 2. css loader
@@ -180,6 +187,8 @@ new VueLoaderPlugin()
 3. html compresser
 
 4. 設定成 hash 檔案
+
+5. clean-webpack-plugin (每次 build 的時候自動清掉 folder 內的所有檔案)
 
 ### 設定 env 參數給 webpack bundle 使用
 
