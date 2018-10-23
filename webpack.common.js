@@ -5,16 +5,20 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const buildPath = path.resolve(__dirname, 'dist');
 module.exports = {
     entry: {
-        'index': './src/index.js'
+        index: './src/index.js'
     },
     plugins: [
         new CleanWebpackPlugin([buildPath]),
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            template: './index.html',
+            hash: true
+        }),
+        new VueLoaderPlugin()
     ],
     output: {
         filename: '[name].bundle.js',
         path: buildPath,
-        publicPath: '/dist/'
+        publicPath: ''
     },
     module: {
         rules: [{
@@ -38,6 +42,5 @@ module.exports = {
         alias: {
             vue: 'vue/dist/vue.js'
         }
-    },
-    plugins: [new VueLoaderPlugin()]
+    }
 };

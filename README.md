@@ -254,6 +254,8 @@ https://my.oschina.net/hyzccc/blog/1797358
 
 https://blog.csdn.net/weixin_40814356/article/details/80625747
 
+https://www.kancloud.cn/hfpp2012/webpack-tutorial/467001
+
 # vs code 安裝套件
 
 https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
