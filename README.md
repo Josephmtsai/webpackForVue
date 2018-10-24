@@ -256,6 +256,8 @@ https://blog.csdn.net/weixin_40814356/article/details/80625747
 
 https://www.kancloud.cn/hfpp2012/webpack-tutorial/467001
 
+https://github.com/chemdemo/chemdemo.github.io/issues/13
+
 # vs code 安裝套件
 
 https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
