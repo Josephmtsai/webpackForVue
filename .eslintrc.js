@@ -11,6 +11,7 @@ module.exports = {
       }
     ],
     quotes: ['error', 'single'],
+    "indent": ["error", 4],
     'linebreak-style': 0,
     'padded-blocks': ['error', 'always'],
     'eol-last': ['error', 'always'],
