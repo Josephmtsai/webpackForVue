@@ -31,24 +31,29 @@ module.exports = {
         path: buildPath,
     },
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /(node_modules|bower_components)/,
-            use: {
-                loader: 'babel-loader',
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                },
             },
-        },
-        {
-            test: /\.vue$/,
-            use: 'vue-loader',
-        },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.vue$/,
+                use: 'vue-loader',
+            },
         ],
     },
     resolve: {
         extensions: ['.js', '.vue'],
         /**
-         * Vue v2.x 之後 NPM Package 預設只會匯出 runtime-only 版本，若要使用 standalone 功能則需下列設定
-         */
+     * Vue v2.x 之後 NPM Package 預設只會匯出 runtime-only 版本，若要使用 standalone 功能則需下列設定
+     */
         alias: {
             vue: 'vue/dist/vue.js',
         },

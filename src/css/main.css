@@ -1,0 +1,11 @@
+body {
+  background: pink;
+}
+
+.imageRadis {
+  border-radius: 50%;
+}
+
+.imageUser {
+  content: url('../images/user.jpg');
+}
