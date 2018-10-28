@@ -47,6 +47,10 @@ module.exports = {
                 test: /\.vue$/,
                 use: 'vue-loader',
             },
+            {
+                test: /\.(png|jpg|gif)$/,
+                loader: 'file-loader',
+            },
         ],
     },
     resolve: {

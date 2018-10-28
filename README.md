@@ -258,6 +258,8 @@ https://www.kancloud.cn/hfpp2012/webpack-tutorial/467001
 
 https://github.com/chemdemo/chemdemo.github.io/issues/13
 
+https://medium.com/@alphaorange/cwebpack-1-css-loader-68a86fbe389f
+
 # vs code 安裝套件
 
 https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
