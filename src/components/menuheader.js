@@ -1,10 +1,22 @@
 export default {
-  data() {
-    return {
-      headerValue: ['first', 'second', 'third'],
-      greeting: 'hello'
-    };
-  }
-};
+    data() {
 
-console.log('asdsd');
+        return {
+            headerValue: ['first', 'second', 'third'],
+            greeting: 'hello',
+        };
+    
+},
+    methods: {
+        showModal() {
+
+            this.$refs.myModalRef.show();
+        
+},
+        hideModal() {
+
+            this.$refs.myModalRef.hide();
+        
+},
+    },
+};

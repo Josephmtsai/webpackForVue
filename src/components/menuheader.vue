@@ -7,6 +7,10 @@
         <div class="imageRadis imageUser">
                 
         </div>
+
+        <b-modal ref="modal" title="Location" @ok="handleOk" ok-only size="lg">
+        
+        </b-modal>
     </div>
 </template>
 
