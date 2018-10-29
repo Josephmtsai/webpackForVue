@@ -3,6 +3,7 @@
         <p>This is header</p>
         <p>{{greeting}} world!</p>
         <div v-for="val in headerValue">{{val}} </div>
+        <b-alert show>Default Alert</b-alert>
         <div class="imageRadis imageUser">
                 
         </div>
