@@ -178,8 +178,6 @@ npm i -D webpack-merge
 npm i -D clean-webpack-plugin
 ```
 
-> 我想把 webpack 設定分開
-
 1. 使用 uglifyjs-webpack-plugin ( 這在 webpack 4 使用 主要是用來 remove js 空格 等等的東西)
 
 2. css loader
@@ -189,6 +187,87 @@ npm i -D clean-webpack-plugin
 4. 設定成 hash 檔案
 
 5. clean-webpack-plugin (每次 build 的時候自動清掉 folder 內的所有檔案)
+
+> 其實這裡想法很簡單 就是先把 common 的部分拆開 然後用 webpack merge 的方法把 dev& prod 設定分開
+> 基本上可以不拆 沒有太大差異
+
+Common 會長這樣
+
+```
+const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const buildPath = path.resolve(__dirname, 'dist');
+module.exports = {
+    entry: {
+        'index': './src/index.js'
+    },
+    plugins: [
+        new CleanWebpackPlugin([buildPath]),
+        new HtmlWebpackPlugin()
+    ],
+    output: {
+        filename: '[name].bundle.js',
+        path: buildPath,
+        publicPath: '/dist/'
+    },
+    module: {
+        rules: [{
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            },
+            {
+                test: /\.vue$/,
+                use: 'vue-loader'
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['.js', '.vue'],
+        /**
+         * Vue v2.x 之後 NPM Package 預設只會匯出 runtime-only 版本，若要使用 standalone 功能則需下列設定
+         */
+        alias: {
+            vue: 'vue/dist/vue.js'
+        }
+    },
+    plugins: [new VueLoaderPlugin()]
+};
+```
+
+dev 因為加 webpack dev 設定 所以分開來 其實沒有太大差別
+
+```
+const merge = require('webpack-merge');
+const webpack = require('webpack');
+const common = require('./webpack.common.js');
+
+const dev = merge(common, {
+    mode: 'development',
+    devtool: 'inline-source-map',
+    devServer: {
+        port: 7777,
+        contentBase: './',
+        hot: true,
+        inline: true,
+    },
+    plugins: [new webpack.HotModuleReplacementPlugin()],
+});
+console.log(dev);
+module.exports = dev;
+```
+
+- 這裡有一些設定需要注意
+
+> 像是 css loader & style loader 順序
+
+> url-loader 他會把檔案小於你設定的 size 改成 base64string 存在 js 內
+
+> HtmlWebpackPlugin 把你的 index html 搬走
 
 ### 設定 env 參數給 webpack bundle 使用
 
