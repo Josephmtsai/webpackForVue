@@ -1,21 +1,29 @@
+import ImageModal from './modal/image_modal.vue';
+
 export default {
+    components: {
+        ImageModal,
+    },
     data() {
 
         return {
             headerValue: ['first', 'second', 'third'],
             greeting: 'hello',
+            index: 0,
         };
     
 },
     methods: {
         showModal() {
 
-            this.$refs.myModalRef.show();
+            this.index += 1;
+            this.index %= 2;
+            this.$refs.modal.show();
         
 },
         hideModal() {
 
-            this.$refs.myModalRef.hide();
+            this.$refs.modal.hide();
         
 },
     },
