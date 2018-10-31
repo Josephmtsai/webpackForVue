@@ -9,13 +9,13 @@ export default {
         return {
             imageSrcs: [gogo, gogo2],
         };
-    
-},
+
+    },
     methods: {
         getImageURL() {
 
             return this.imageSrcs[this.selectIndex];
-        
-},
+
+        },
     },
 };
