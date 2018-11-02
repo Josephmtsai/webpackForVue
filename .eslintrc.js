@@ -17,7 +17,7 @@ module.exports = {
     'eol-last': ['error', 'always'],
     'comma-style': ['error', 'last'],
     'no-multiple-empty-lines': ['error', {
-      'max': 1,
+      'max': 0,
       "maxEOF": 1,
       "maxBOF": 1
     }]

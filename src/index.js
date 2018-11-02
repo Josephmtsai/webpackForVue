@@ -1,14 +1,14 @@
 import vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
-import menuheader from './components/menuheader.vue';
+import contents from './components/contents.vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 vue.use(BootstrapVue);
 new vue({
     el: '#badmintoninfo',
-    template: '<menuheader/>',
+    template: '<contents/>',
     components: {
-        menuheader,
+        contents,
     },
 });
