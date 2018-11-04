@@ -18,10 +18,10 @@ module.exports = {
         new UglifyJsPlugin({
             parallel: true,
             uglifyOptions: {
-                compress: {
+                /* compress: {
                     drop_console: true,
                     drop_debugger: true,
-                },
+                }, */
             },
         }),
     ],
