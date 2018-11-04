@@ -1,18 +1,15 @@
 <template>
-    <div>
+    <div id="badmintoninfo">
         <menuheader></menuheader>
-        <div class="imageRadis imageUser">                
-        </div>
-        <b-btn @click="showModal" variant="info" class="m-1">
-            Show Image
-        </b-btn>
-        <b-modal ref="modal" title="Image" @ok="hideModal" ok-only size="lg">
-            <image-modal :select-index="index" ></image-modal>
-        </b-modal>
+        <router-view></router-view>
     </div>
 </template>
 
 <style>
 @import '.././css/main.css';
 </style>
-<script src="./contents.js"></script>
+<script>
+export default {
+  name: 'contents'
+};
+</script>

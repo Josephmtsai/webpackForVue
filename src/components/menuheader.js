@@ -1,8 +1,7 @@
 export default {
     data() {
         return {
-            headerValue: ['first', 'second', 'third'],
-            greeting: 'hello',
+            headerValue: [{ val: 'images', url: '/images' }, { val: 'apisource', url: '/apisource' }],
             index: 0,
         };
     },

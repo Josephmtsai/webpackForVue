@@ -8,8 +8,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item " v-for="val in headerValue">
-                    <a class="nav-link" href="#">{{val}}</a>
+                <li class="nav-item " v-for="hv in headerValue">
+                    <a class="nav-link" :href="hv.url">{{hv.val}}</a>
                 </li>
             </ul>
         </div>
