@@ -44,6 +44,7 @@
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.11",
     "vue": "^2.5.17",
+    "vue-gallery-slideshow": "^1.2.10",
     "vue-router": "^3.0.1"
   }
 }

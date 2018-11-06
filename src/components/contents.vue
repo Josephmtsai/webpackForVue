@@ -8,8 +8,5 @@
 <style>
 @import '.././css/main.css';
 </style>
-<script>
-export default {
-  name: 'contents'
-};
-</script>
+
+<script src="./contents.js"></script>  

@@ -5,7 +5,15 @@ body {
 .imageRadis {
   border-radius: 50%;
 }
-
+.image {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+}
 .imageUser {
-  content: url('../images/user.jpg');
+  content: url('../images/lux.jpg');
 }
