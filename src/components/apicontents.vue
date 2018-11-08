@@ -7,5 +7,8 @@
             <div class="col-lg-10 ">
                 <tree-view :data="jsonSource" ></tree-view>
             </div>
+        </div>
     </div>
 </template>
+
+<script src="./apicontents.js"></script>        

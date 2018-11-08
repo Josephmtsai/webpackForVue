@@ -10,7 +10,7 @@ module.exports = {
         after: true
       }
     ],
-    quotes: ['error', 'single'],
+    quotes: ['error', 'single'], 
     "indent": ["error", 4],
     'linebreak-style': 0,
     'padded-blocks': ['error', 'always'],

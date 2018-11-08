@@ -269,6 +269,20 @@ module.exports = dev;
 
 > HtmlWebpackPlugin 把你的 index html 搬走
 
+### 遇到es6 語法 build出來 他會跳錯誤
+
+regeneratorRuntime is not defined
+
+這個問題是因為 babel (不安裝額外東西）並不是支持完整的ES6語言，加上瀏覽器也不是支持所有的ES6語言
+
+![Alt text](/images/issue2.jpg)
+
+```
+npm install --save-dev @babel/plugin-transform-runtime
+
+npm install --save @babel/runtime
+```
+
 ### 設定 env 參數給 webpack bundle 使用
 
 ### 安裝 eslint format
