@@ -5,7 +5,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import router from './router';
 import contents from './components/contents.vue';
 
-console.log(contents);
+console.log(router);
 vue.use(BootstrapVue);
 new vue({
     router,

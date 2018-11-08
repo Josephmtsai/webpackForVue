@@ -1,11 +1,13 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-lg-2 ">
+            <div class="col-lg-12 ">
                 <b-form-input v-model="apiUrl" type="text" placeholder="Api Url"></b-form-input>
             </div>
-            <div class="col-lg-10 ">
-                <tree-view :data="jsonSource" ></tree-view>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 ">
+                <tree-view :data="jsonSource"  ></tree-view>
             </div>
         </div>
     </div>
